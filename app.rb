@@ -51,3 +51,8 @@ post '/visit' do
  	@barber = Barber.find(params[:id])
  erb :barber
 end
+
+get'/bookings' do 
+   @clients = Client.order('created_at DESC')
+   erb :bookings 	
+end
