@@ -5,6 +5,12 @@ require 'sinatra/activerecord'
 
 set :database, "sqlite3:barbershop.db"
 
+
+
+before do 
+	@barbers = Barber.all 
+end
+
 class Client < ActiveRecord::Base
 end
 
@@ -16,3 +22,17 @@ get'/' do
 	erb :index
 	
 end
+
+
+get '/visit' do
+        erb :visit
+end
+
+post '/visit' do
+
+        @username = params[:username]
+        @phone = params[:phone]
+        @datetime = params[:datetime]
+        @barber = params[:barber]
+        @color = params[:color]
+ end
