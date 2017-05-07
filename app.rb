@@ -8,8 +8,6 @@ set :database, "sqlite3:barbershop.db"
 class Client < ActiveRecord::Base
 end
 
-class Barber < ActiveRecord::Base
-end
 
 
 
