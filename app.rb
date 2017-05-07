@@ -17,6 +17,9 @@ end
 class Barber < ActiveRecord::Base
 end
 
+class Contact < ActiveRecord::Base
+end
+
 get'/' do 
 	@barbers = Barber.all
 	erb :index
@@ -35,4 +38,13 @@ post '/visit' do
         @datetime = params[:datetime]
         @barber = params[:barber]
         @color = params[:color]
+
+        c = Client.new
+        c.name = @username
+        c.phone = @phone
+        c.barber = @barber
+        c.datestamp = @datetime
+        c.color = @color
+        c.save
+        erb"Спсибо ,Вы записались"
  end
