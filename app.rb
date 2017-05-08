@@ -17,6 +17,7 @@ class Client < ActiveRecord::Base
 	validates :datestamp, presence: true
 	validates :color, presence: true
 
+
 end
 
 class Barber < ActiveRecord::Base
@@ -40,6 +41,7 @@ end
 post '/visit' do
 
        @c = Client.new params[:client]
+
         if @c.save
         erb"Спaсибо ,Вы записались"
       else
@@ -56,6 +58,7 @@ get'/bookings' do
    @clients = Client.order('created_at DESC')
    erb :bookings 	
 end
+
 get'/client/:id' do 
 	@client = Client.find(params[:id])
 	erb :client

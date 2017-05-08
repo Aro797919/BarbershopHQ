@@ -36,7 +36,7 @@ $(function() {
 
 <div class="form-group">
     <label>Ваш парикмахер:</label>
-    <select name="barber" class="form-control">
+    <select name="client[barber]" class="form-control">
       
     <option <%= @barber == 'Jessie Pinkman' ? 'selected' : '' %>>Jessie Pinkman</option>
     <option <%= @barber ==  'Walter White'? 'selected' : ''%>>Walter White</option>
